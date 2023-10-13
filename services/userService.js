@@ -1,3 +1,13 @@
+const mysql = require('mysql2/promise'); // mysql2/promise 모듈 사용
+const connect = {
+    host: '127.0.0.1',
+    port: "3306",
+    user: "root",
+    password: '1234',
+    database: 'practice_database'
+};
+
+
 const createUser = async (req, res) => {
     console.log("확인 한 번 해봤습니다~ ㅋ");
     try {

@@ -1,8 +1,18 @@
+const mysql = require('mysql2/promise'); // mysql2/promise 모듈 사용
+const connect = {
+    host: '127.0.0.1',
+    port: "3306",
+    user: "root",
+    password: '1234',
+    database: 'practice_database'
+};
+
+
 const writePost = async (req, res) => {
     console.log("마! 게시글 함 써보까!");
     try {
-        const conn = await mysql.createConnection(connect);
         const sql = "INSERT INTO posts (title, content, user_id) VALUES (?, ?, ?)";
+        const conn = await mysql.createConnection(connect);
         const postInfo = {
             "title": req.body.title,
             "content": req.body.content,
@@ -82,6 +92,7 @@ const deletePosts = async (req, res) => {
         res.status(500).json({ message: "에러 발생: " + error.message });
     }
 }
+
 
 const likePost = async (req, res) => {
     console.log("아우~ 좋아유~");

@@ -6,8 +6,6 @@ const PORT = 8000;
 const http = require('http');
 const {createUser} = require('./services/userService');
 const {writePost, showPosts, specificUser, modifyContent, deletePosts, likePost} = require('./services/postService');
-
-
 console.log("마 시작했따!")
 const connect = {
     host: '127.0.0.1',
@@ -20,10 +18,6 @@ const connect = {
 app.listen(PORT, () => {
     console.log(`${PORT}번 port에 연결 되었습니다.`);
 });
-
-
-
-
 
 app.post('/insertUserInfo', createUser);
 app.post('/writePost', writePost);
